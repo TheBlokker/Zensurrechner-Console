@@ -12,3 +12,4 @@ C:\Users\Timm\source\repos\Zensurrechner Console\Zensurrechner Console\obj\Debug
 C:\Users\Timm\source\repos\Zensurrechner Console\Zensurrechner Console\obj\Debug\net6.0\Zensurrechner Console.pdb
 C:\Users\Timm\source\repos\Zensurrechner Console\Zensurrechner Console\obj\Debug\net6.0\Zensurrechner Console.genruntimeconfig.cache
 C:\Users\Timm\source\repos\Zensurrechner Console\Zensurrechner Console\obj\Debug\net6.0\ref\Zensurrechner Console.dll
+C:\Users\Timm\source\repos\Zensurrechner Console\Zensurrechner Console\bin\Debug\net6.0\data.txt

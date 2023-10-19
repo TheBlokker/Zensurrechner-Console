@@ -13,251 +13,228 @@ using System.Numerics;
 
 namespace Zensurrechner_Console
 {
-    internal class Program
+	public class NotenSpeicherung
     {
+        public Dictionary<string, object>? Classname { get; set; }
+        public string? Klassenname { get; set; }
+        public int SummeAllerNoten { get; set; }
+        public int AnzahlAnNoten { get; set; }
+        public int AnzahlAnNote1 { get; set; }
+        public int AnzahlAnNote2 { get; set; }
+        public int AnzahlAnNote3 { get; set; }
+        public int AnzahlAnNote4 { get; set; }
+        public int AnzahlAnNote5 { get; set; }
+        public int AnzahlAnNote6 { get; set; }
+		public float Durchschnitt { get;set; }
+    }
+
+    internal class Program
+	{
 #pragma warning disable IDE0210 // Konvertieren in Anweisungen der obersten Ebene
-        static void Main(string[] args)
-        {
+		static async Task Main(string[] args)
+		{
+
+			// Def Var
+			string nameinputvalue;
+			string Activity;
+			string ClassName = "";
+
+
+			Class class1 = new Class();
+
+			//SaveLoad saveLoad = new SaveLoad();
+
+			while (true)
+			{
+
+
+				Console.WriteLine("Was möchten Sie machen? (addpoints, createClass, listclass, resetAll)");
+				Activity = Console.ReadLine();
+				if (Activity == "createClass")
+				{
+
+					Console.WriteLine("Name der Klasse eingeben:");
+					ClassName = Console.ReadLine();
+					class1.CreateClass(ClassName, 0);
+					Console.WriteLine($"Klasse {ClassName} wurde hinzugefügt");
+					string jsonString = JsonSerializer.Serialize(class1);
+					Console.WriteLine(jsonString);
+				}
+				if (Activity == "addpoints")
+				{
+
+					//def new strings
+					int sum1N = 0;
+					int sum2N = 0;
+					int sum3N = 0;
+					int sum4N = 0;
+					int sum5N = 0;
+					int sum6N = 0;
+					string stop = "";
+
+					bool dontstop = true;
 
 
 
+					Console.WriteLine("Klassennamen angeben:");
+					ClassName = Console.ReadLine();
 
+					while (dontstop == true)
+					{
+						Console.WriteLine("Eingabe BE (von Max BE 10)");
+						string pointsstring;
+						pointsstring = Console.ReadLine();
 
+						int pointsint = 0;
+						//formation string in int
+						//For points
+						try
+						{
+							pointsint = Convert.ToInt32(pointsstring);
+							// calc Note
+							int noteint = 0;
 
-
-
-
-
-
-
-            // Def Var
-            string nameinputvalue;
-            string Activity;
-            string ClassName = "";
-
-
-            Class class1 = new Class();
-
-            //SaveLoad saveLoad = new SaveLoad();
-
-            while (true)
-            {
-
-
-                Console.WriteLine("Was möchten Sie machen? (addpoints, createClass, listclass, resetAll)");
-                Activity = Console.ReadLine();
-                if (Activity == "createClass")
-                {
-
-                    Console.WriteLine("Name der Klasse eingeben:");
-                    ClassName = Console.ReadLine();
-                    class1.CreateClass(ClassName, 0);
-                    Console.WriteLine($"Klasse {ClassName} wurde hinzugefügt");
-                    string jsonString = JsonSerializer.Serialize(class1);
-                    Console.WriteLine(jsonString);
-                }
-                if (Activity == "addpoints")
-                {
-                    //import old txt file
-                    string pathwr = @"C:\Users\Timm\Documents\Zensurrechner\save\save1.txt";
-                    
-                    try
-                    {
-                        // Open the text file using a stream reader.
-                        using (var sr = new StreamReader(pathwr))
-                        {
-                            // Read the stream as a string, and write the string to the console.
-                            string filetxt = sr.ReadToEnd();
-                            Console.WriteLine(filetxt);
+							if (pointsint >= 10 && pointsint < 15)
+							{
+								noteint = 1;
+								sum1N++;
+							}
+							if (pointsint < 10 && pointsint >= 8)
+							{
+								noteint = 2;
+								sum2N++;
+							}
+							if (pointsint < 8 && pointsint >= 7)
+							{
+								noteint = 3;
+								sum3N++;
+							}
+							if (pointsint < 7 && pointsint >= 5)
+							{
+								noteint = 4;
+								sum4N++;
+							}
+							if (pointsint < 5 && pointsint >= 3)
+							{
+								noteint = 5;
+								sum5N++;
+							}
+							if (pointsint < 3 && pointsint >= 0)
+							{
+								noteint = 6;
+								sum6N++;
+							}
+							if (pointsint >= 15 || pointsint < 0)
+							{
+								Console.ForegroundColor = ConsoleColor.Red;
+								Console.WriteLine("ERROR, FormatException");
+								Console.ForegroundColor = ConsoleColor.White;
+							}
+							int summe = sum1N + sum2N + sum3N + sum4N + sum5N + sum6N;
+							int summe2 = sum1N * 1 + sum2N * 2 + sum3N * +sum4N * 4 + sum5N * 5 + sum6N * 6;
+                            ;
+                            float durchschnitt;
                             
-                            sr.Close();
-                            using (var sw = new StreamWriter(pathwr))
-                            {
-                                sw.WriteLine(filetxt+ Environment.NewLine);
-                                Console.WriteLine(filetxt);
-                                sw.Close();
-                            }
-                        }
-                    }
-                    catch (IOException e)
-                    {
-                        Console.WriteLine("The file could not be read:");
-                        Console.WriteLine(e.Message);
-                    }
-
-                    //def new strings
-                    int sum1N = 0;
-                    int sum2N = 0;
-                    int sum3N = 0;
-                    int sum4N = 0;
-                    int sum5N = 0;
-                    int sum6N = 0;
-                    string stop = "";
-
-                    bool dontstop = true;
-
-                    
-
-                  /*  using (StreamWriter outputFile = new StreamWriter(pathwr))
-                    {
-                        //load old fiel an new line;
-                        
-                    }*/
-
-                    Console.WriteLine("Klassennamen angeben:");
-                    ClassName = Console.ReadLine();
-
-                    while (dontstop == true)
-                    {
-                        Console.WriteLine("Eingabe BE (von Max BE 10)");
-                        string pointsstring;
-                        pointsstring = Console.ReadLine();
-
-                        int pointsint = 0;
-                        //formation string in int
-                        //For points
-                        try
-                        {
-                            pointsint = Convert.ToInt32(pointsstring);
-                            // calc Note
-                            int noteint = 0;
-
-                            if (pointsint >= 10 && pointsint < 15)
-                            {
-                                noteint = 1;
-                                sum1N++;
-                            }
-                            if (pointsint < 10 && pointsint >= 8)
-                            {
-                                noteint = 2;
-                                sum2N++;
-                            }
-                            if (pointsint < 8 && pointsint >= 7)
-                            {
-                                noteint = 3;
-                                sum3N++;
-                            }
-                            if (pointsint < 7 && pointsint >= 5)
-                            {
-                                noteint = 4;
-                                sum4N++;
-                            }
-                            if (pointsint < 5 && pointsint >= 3)
-                            {
-                                noteint = 5;
-                                sum5N++;
-                            }
-                            if (pointsint < 3 && pointsint >= 0)
-                            {
-                                noteint = 6;
-                                sum6N++;
-                            }
-                            if (pointsint >= 15 || pointsint < 0)
-                            {
-                                Console.ForegroundColor = ConsoleColor.Red;
-                                Console.WriteLine("ERROR, FormatException");
-                                Console.ForegroundColor = ConsoleColor.White;
-                            }
-                            int summe = sum1N + sum2N + sum3N + sum4N + sum5N + sum6N;
+                            durchschnitt = (float)summe2 / summe;
+                            Math.Round((double)durchschnitt, 2);
                             class1.AddGrandToClas(ClassName, summe, sum1N, sum2N, sum3N, sum4N, sum5N, sum6N);
-                            string jsonString = JsonSerializer.Serialize(class1);
-                            Console.WriteLine(jsonString);
-
-                            //File creation
-
-                            using (var sr = new StreamReader(pathwr))
-                            {
-                                // Read the stream as a string, and write the string to the console.
-                                string filetxt = sr.ReadToEnd();
-                                Console.WriteLine(filetxt);
-
-                                sr.Close();
-
-
-                                using (StreamWriter outputFile = new StreamWriter(pathwr))
+							var notenspeicherung = new NotenSpeicherung
+							{
+								Classname = new Dictionary<string, >
                                 {
-
-                                    outputFile.WriteLine(filetxt + Environment.NewLine + jsonString);
+                                    Klassenname = ClassName,
+                                    SummeAllerNoten = summe2,
+                                    AnzahlAnNote1 = sum1N,
+                                    AnzahlAnNote2 = sum2N,
+                                    AnzahlAnNote3 = sum3N,
+                                    AnzahlAnNote4 = sum4N,
+                                    AnzahlAnNote5 = sum5N,
+                                    AnzahlAnNote6 = sum6N,
+                                    AnzahlAnNoten = summe,
+                                    durchschnitt = durchschnitt
                                 }
-                            }
+
+							};
+                            string fileName = "notensumme.json";
+                            using FileStream createStream = File.Create(fileName);
+                            var options = new JsonSerializerOptions { WriteIndented = true };
+                            await JsonSerializer.SerializeAsync(createStream, notenspeicherung, options);
+                            await createStream.DisposeAsync();
+                            Console.WriteLine(File.ReadAllText(fileName));
+
+
+
+
                         }
 
                         catch (FormatException)
-                        {
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine("ERROR, FormatException");
-                            Console.ForegroundColor = ConsoleColor.White;
+						{
+							Console.ForegroundColor = ConsoleColor.Red;
+							Console.WriteLine("ERROR, FormatException");
+							Console.ForegroundColor = ConsoleColor.White;
 
-                        }
-                        catch (OverflowException)
-                        {
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine("ERROR, OverflowException");
-                            Console.ForegroundColor = ConsoleColor.White;
+						}
+						catch (OverflowException)
+						{
+							Console.ForegroundColor = ConsoleColor.Red;
+							Console.WriteLine("ERROR, OverflowException");
+							Console.ForegroundColor = ConsoleColor.White;
 
-                        }
-                        Console.WriteLine("Möchten sie weiter machen? Wenn nein 'stop' eingeben");
-                        stop = Console.ReadLine();
-                        if (stop == "stop")
-                        {
-                            dontstop = false;
-                            
-                        }
-                        if (stop == "results")
-                        {
-                            dontstop = false;
-                            //load results
-                        }
-                    }
-                    string line;
-                    string path = @"C:\Users\Timm\Documents\Zensurrechner\save\save1.txt";
-                    try
-                    {
-                        //Pass the file path and file name to the StreamReader constructor
-                        StreamReader sr = new StreamReader(path);
-                        //Read the first line of text
-                        line = sr.ReadLine();
-                        //Continue to read until you reach end of file
-                        while (line != null)
-                        {
-                            //write the line to console window
-                            Console.WriteLine(line);
-                            //Read the next line
-                            line = sr.ReadLine();
-                        }
-                        
-                        //close the file
-                        sr.Close();
-                        Console.ReadLine();
-                    }
-                    catch (Exception e)
-                    {
-                        Console.WriteLine("Exception: " + e.Message);
-                    }
-                    finally
-                    {
-                        
-                        Console.WriteLine("Executing finally block.");
-                        
+						}
+						Console.WriteLine("Möchten sie weiter machen? Wenn nein 'stop' eingeben");
+						stop = Console.ReadLine();
+						if (stop == "stop")
+						{
+							dontstop = false;
+						}
+						if (stop == "results")
+						{
+							dontstop = false;
+							//load results
+						}
+					}
 
+				}
 
-                    }
+                if (Activity == "listclass")
+                {
+                    Console.WriteLine("Auflistung alles Klassen erfolgt.\nBitte warten.");
+                    string fileName = "notensumme.json";
+                    using FileStream openStream = File.OpenRead(fileName);
+                    NotenSpeicherung? notenSpeicherung =
+                        await JsonSerializer.DeserializeAsync<NotenSpeicherung>(openStream);
 
+                    Console.WriteLine($"Klassenname: {notenSpeicherung.Klassenname}\nSumme aler Notenwerte: {notenSpeicherung.SummeAllerNoten}\nAnzahl an der Note 1: {notenSpeicherung.AnzahlAnNote1}\nAnzahl an der Note 2: {notenSpeicherung.AnzahlAnNote2}\nAnzahl an der Note 3: {notenSpeicherung.AnzahlAnNote3}\nAnzahl an der Note 4: {notenSpeicherung.AnzahlAnNote4}\nAnzahl an der Note 5: {notenSpeicherung.AnzahlAnNote5}\nAnzahl an der Note 6: {notenSpeicherung.AnzahlAnNote6}\nAnzahl aller Noten: {notenSpeicherung.AnzahlAnNoten}\nDurchschnitt: {notenSpeicherung.Durchschnitt}");
                 }
-
+                if (Activity == "exit")
+                {
+                    bool quit;
+                    Console.WriteLine("Möchten Sie wirklich verlassen?\ny/n");
+                    string quitqes = "y";
+                    quitqes = Console.ReadLine();
+                    if (quitqes == "y")
+                    {
+                        quit = true;
+                        return;
+                    }
+                }
                 else
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("ERROR");
                     Console.ForegroundColor = ConsoleColor.White;
                 }
-
-                nameinputvalue = Console.ReadLine();
-
-                Console.WriteLine($"{nameinputvalue} wurde hinzugefügt.");
-                Console.ReadKey();
             }
-        }
+
+			
+
+            
+
+			nameinputvalue = Console.ReadLine();
+
+			Console.WriteLine($"{nameinputvalue} wurde hinzugefügt.");
+			Console.ReadKey();
+		}
+	}
 #pragma warning restore IDE0210 // Konvertieren in Anweisungen der obersten Ebene
-    }
 }
