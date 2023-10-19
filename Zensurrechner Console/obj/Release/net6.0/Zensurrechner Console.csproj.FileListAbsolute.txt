@@ -1,0 +1,25 @@
+C:\Users\Timm\source\repos\Zensurrechner Console\Zensurrechner Console\bin\Release\net6.0\Zensurrechner Console.exe
+C:\Users\Timm\source\repos\Zensurrechner Console\Zensurrechner Console\bin\Release\net6.0\data.txt
+C:\Users\Timm\source\repos\Zensurrechner Console\Zensurrechner Console\bin\Release\net6.0\Zensurrechner Console.deps.json
+C:\Users\Timm\source\repos\Zensurrechner Console\Zensurrechner Console\bin\Release\net6.0\Zensurrechner Console.runtimeconfig.json
+C:\Users\Timm\source\repos\Zensurrechner Console\Zensurrechner Console\bin\Release\net6.0\Zensurrechner Console.dll
+C:\Users\Timm\source\repos\Zensurrechner Console\Zensurrechner Console\bin\Release\net6.0\Zensurrechner Console.pdb
+C:\Users\Timm\source\repos\Zensurrechner Console\Zensurrechner Console\bin\Release\net6.0\NStack.dll
+C:\Users\Timm\source\repos\Zensurrechner Console\Zensurrechner Console\bin\Release\net6.0\System.CodeDom.dll
+C:\Users\Timm\source\repos\Zensurrechner Console\Zensurrechner Console\bin\Release\net6.0\System.Management.dll
+C:\Users\Timm\source\repos\Zensurrechner Console\Zensurrechner Console\bin\Release\net6.0\Terminal.Gui.dll
+C:\Users\Timm\source\repos\Zensurrechner Console\Zensurrechner Console\bin\Release\net6.0\fr-FR\Terminal.Gui.resources.dll
+C:\Users\Timm\source\repos\Zensurrechner Console\Zensurrechner Console\bin\Release\net6.0\ja-JP\Terminal.Gui.resources.dll
+C:\Users\Timm\source\repos\Zensurrechner Console\Zensurrechner Console\bin\Release\net6.0\pt-PT\Terminal.Gui.resources.dll
+C:\Users\Timm\source\repos\Zensurrechner Console\Zensurrechner Console\bin\Release\net6.0\runtimes\win\lib\net6.0\System.Management.dll
+C:\Users\Timm\source\repos\Zensurrechner Console\Zensurrechner Console\obj\Release\net6.0\Zensurrechner Console.csproj.AssemblyReference.cache
+C:\Users\Timm\source\repos\Zensurrechner Console\Zensurrechner Console\obj\Release\net6.0\Zensurrechner Console.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Timm\source\repos\Zensurrechner Console\Zensurrechner Console\obj\Release\net6.0\Zensurrechner Console.AssemblyInfoInputs.cache
+C:\Users\Timm\source\repos\Zensurrechner Console\Zensurrechner Console\obj\Release\net6.0\Zensurrechner Console.AssemblyInfo.cs
+C:\Users\Timm\source\repos\Zensurrechner Console\Zensurrechner Console\obj\Release\net6.0\Zensurrechner Console.csproj.CoreCompileInputs.cache
+C:\Users\Timm\source\repos\Zensurrechner Console\Zensurrechner Console\obj\Release\net6.0\Zensurrechner Console.csproj.CopyComplete
+C:\Users\Timm\source\repos\Zensurrechner Console\Zensurrechner Console\obj\Release\net6.0\Zensurrechner Console.dll
+C:\Users\Timm\source\repos\Zensurrechner Console\Zensurrechner Console\obj\Release\net6.0\refint\Zensurrechner Console.dll
+C:\Users\Timm\source\repos\Zensurrechner Console\Zensurrechner Console\obj\Release\net6.0\Zensurrechner Console.pdb
+C:\Users\Timm\source\repos\Zensurrechner Console\Zensurrechner Console\obj\Release\net6.0\Zensurrechner Console.genruntimeconfig.cache
+C:\Users\Timm\source\repos\Zensurrechner Console\Zensurrechner Console\obj\Release\net6.0\ref\Zensurrechner Console.dll
