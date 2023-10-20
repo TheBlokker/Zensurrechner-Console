@@ -11,29 +11,34 @@ using System.Text.Json;
 using System.Reflection;
 using System.Numerics;
 using System.Reflection.Metadata;
+using Terminal.Gui;
+
+Application.Init();
+
+Application.Run(new Zensurrechner_Console.Programm_sec());
+
+Application.Shutdown();
 
 namespace Zensurrechner_Console
 {
-	public class NotenSpeicherung
-    {
-        public Dictionary<string, object>? Classname { get; set; }
-        public string? Klassenname { get; set; }
-        public int SummeAllerNoten { get; set; }
-        public int AnzahlAnNoten { get; set; }
-        public int AnzahlAnNote1 { get; set; }
-        public int AnzahlAnNote2 { get; set; }
-        public int AnzahlAnNote3 { get; set; }
-        public int AnzahlAnNote4 { get; set; }
-        public int AnzahlAnNote5 { get; set; }
-        public int AnzahlAnNote6 { get; set; }
-		public float Durchschnitt { get;set; }
-    }
 
-    internal class Program
-	{
+
+
+    public class Program 
+    {
+
 #pragma warning disable IDE0210 // Konvertieren in Anweisungen der obersten Ebene
-		static async Task Main(string[] args)
+        public static async Task Main()
 		{
+			Programm_sec.Create();
+		
+			
+			
+
+
+
+
+
             Console.ForegroundColor = ConsoleColor.White;
             await Console.Out.WriteLineAsync($"Zensurrechner - {Assembly.GetExecutingAssembly().GetName().Version.ToString()}\n");
             // Def Var
@@ -166,7 +171,7 @@ namespace Zensurrechner_Console
                                     AnzahlAnNote6 = sum6N,
                                     AnzahlAnNoten = summe,
                                     Durchschnitt = durchschnitt
-                                    //}
+                                   // }
 
                                 };
                                 string fileName = "notensumme.json";
@@ -258,13 +263,13 @@ namespace Zensurrechner_Console
 				{
 					Console.Clear();
 				}
-                /*else
+                else
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("ERROR");
                     Console.ForegroundColor = ConsoleColor.White;
-                }*/
-            }
+                }
+        }
 
 
 
@@ -275,6 +280,6 @@ namespace Zensurrechner_Console
 			Console.WriteLine($"{nameinputvalue} wurde hinzugefügt.");
 			Console.ReadKey();
 		}
-	}
+    }
 #pragma warning restore IDE0210 // Konvertieren in Anweisungen der obersten Ebene
 }
